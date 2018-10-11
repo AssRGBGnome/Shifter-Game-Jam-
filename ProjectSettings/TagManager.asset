@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Die
+  - Destroy
   layers:
   - Default
   - TransparentFX

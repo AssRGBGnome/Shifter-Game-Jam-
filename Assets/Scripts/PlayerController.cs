@@ -6,21 +6,31 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public GameObject ShifterObj;
-    public int dir = 0; //0 = up
+    public Animator PlayerAnim;
+    public int dir;
+    public int press = 0;
+    private bool dpaddis = false;
+
+    private void Start()
+    {
+        dir = Random.Range(0, 4);
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetMouseButtonDown(0))
+        Move();
+        if (((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || press == 1)))
         {
+            press = 0;
             dir += 1;
             if (dir > 3) { dir = 0; }
         }
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetMouseButtonDown(1))
+        if (((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || press == -1)))
         {
+            press = 0;
             dir -= 1;
             if (dir < 0) { dir = 3; }
         }
-        Move();
     }
 
     public void Move()
@@ -53,5 +63,21 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+
+    void PlayIdleAnim()
+    {
+        PlayerAnim.SetBool("Starting", false);
+        PlayerAnim.SetBool("Idle", true);
+    }
+
+    public void LeftButtonPress()
+    {
+        press = -1;
+    }
+
+    public void RightButtonPress()
+    {
+        press = 1;
     }
 }

@@ -20,8 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4200064949213782}
   - component: {fileID: 212500464022531730}
-  - component: {fileID: 58067888459228308}
-  - component: {fileID: 50421370582585920}
+  - component: {fileID: 50061609530628968}
+  - component: {fileID: 58823862578664516}
+  - component: {fileID: 114624075429672936}
   m_Layer: 0
   m_Name: Pellet
   m_TagString: Die
@@ -36,33 +37,33 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1867830740050306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.99, y: 0, z: 0}
+  m_LocalPosition: {x: -8.09, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50421370582585920
+--- !u!50 &50061609530628968
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1867830740050306}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &58067888459228308
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!58 &58823862578664516
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,6 +78,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &114624075429672936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1867830740050306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8b3185aea9c954d90e3d87d26a3800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 150
+  rb: {fileID: 50061609530628968}
+  S_PelletManager: {fileID: 0}
 --- !u!212 &212500464022531730
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -111,7 +126,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 481092ab8c43a5b4b99840185fbcb29f, type: 3}
   m_Color: {r: 0, g: 0.6411767, b: 1, a: 1}
   m_FlipX: 0
